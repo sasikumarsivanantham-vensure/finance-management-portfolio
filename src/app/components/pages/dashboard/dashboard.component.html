@@ -1,0 +1,29 @@
+<div class="portfolio-list">
+    <h2>Your Portfolio</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Asset</th>
+                <th>Quantity</th>
+                <th>Purchase Price</th>
+                <th>Current Value</th>
+                <th>Growth (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(item of portfolios; track item.asset){
+            <tr>
+                <td>{{ item.asset }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.purchasePrice | currency }}</td>
+                <td>{{ item.value | currency }}</td>
+                <td>{{ item.growth }}%</td>
+            </tr>
+            } @empty {
+            <tr>
+                <td>No portfolios found.</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
